@@ -1,10 +1,11 @@
+library(pirateplot)
+
 #source("../scripts/phylotags_preprocessing.R")
 
 idlevel=100 #this matters for testing the results at different levels of identity (phylotags_suppl.R)
-ssu_rare <- ssu_rare_100
-dnaK_rare <- dnaK_rare_100
-gyrB_rare <- gyrB_rare_100
-
+ssu_rare_100 <- ssu_rare
+dnaK_rare_100 <- dnaK_rare  
+gyrB_rare_100 <- gyrB_rare 
 ######################
 # ALPHA DIVERSITY ----
 ######################
@@ -550,6 +551,7 @@ dnaK_glmcont_gen.acutali_dnaK <- dnaK_glmcont_gen.mapdf%>%
 dnaK_glmcont_gen.acutali_dnaK %>%
   filter(p.value<0.055)
 
+## WHERE ARE THE FDR FOR THE DNAK FAMILIES? #######
 
 ## gyrB
 gyrB_shannon.fam <- marker_tax_stats("gyrB",idlevel,"family")$shannon
@@ -717,7 +719,7 @@ cag83_bin.boxplot <-ggplot(cag83)+
   #annotate("text", x = 1.5, y = 20,  label = paste("bin.fdr",round(cag83.fdr,digits = 4),sep="=")) +
   ylim(c(18,40)) +
   labs(x = "Shannon \n", y = bquote("BMI ("~kg/m^2 ~")")) +
-  ggtitle("g__CAG-83 dnaK")
+  ggtitle("Vescimonas dnaK")
 
 
 ### g__CAG-170 (Oscillospiraceae)
